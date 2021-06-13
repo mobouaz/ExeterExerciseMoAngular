@@ -1,0 +1,22 @@
+.main{
+    height: 900px;
+}
+
+.box {
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 150px;
+
+}
+
+.box>* {
+        flex: 1 1 140px;
+}
+
+.header{
+    text-align: center;
+    color: darkgreen;
+    margin-top: 30px;
+}
+    
+  

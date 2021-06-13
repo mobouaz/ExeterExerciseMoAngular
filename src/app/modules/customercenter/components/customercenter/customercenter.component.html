@@ -1,0 +1,10 @@
+<div class="main">
+    <h1 class="header">Customer Center</h1>
+    <div class="box">
+        <div *ngFor="let section of response; let i = index">
+    
+            <div><app-customercenter-card [customercentersection]="section"></app-customercenter-card></div>
+    
+        </div>
+    </div>
+    </div>

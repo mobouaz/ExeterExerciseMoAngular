@@ -1,0 +1,10 @@
+<div class="main">
+    <h1>Dealers</h1>
+<div class="box">
+    <div *ngFor="let dealer of dealers; let i = index">
+
+        <div><app-dealer-card [dealer]="dealers[i]"></app-dealer-card></div>
+
+    </div>
+</div>
+</div>

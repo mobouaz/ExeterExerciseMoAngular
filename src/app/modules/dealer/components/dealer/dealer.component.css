@@ -1,0 +1,15 @@
+.main{
+    height: 900px;
+}
+
+.box {
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 150px;
+}
+
+.box>* {
+        flex: 1 1 160px;
+}
+    
+  
