@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+myTwitter:string;
   constructor() { }
 
   ngOnInit(): void {
+    this.myTwitter = "https://twitter.com/Mo38530189";
   }
 
 }

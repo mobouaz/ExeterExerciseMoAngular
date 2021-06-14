@@ -6,10 +6,15 @@
         display: flex;
         flex-wrap: wrap;
         padding-top: 150px;
+        padding-left: 30px;
 }
 
 .box>* {
         flex: 1 1 160px;
 }
-    
+.header{
+        text-align: center;
+        color: darkgreen;
+        margin-top: 30px;
+    }
   

@@ -15,3 +15,8 @@ export class DealerCardComponent implements OnInit {
   }
 
 }
+
+@Component({ selector: 'app-dealer-card', template: '' })
+export class DealerCardCtubComponent implements Partial<DealerCardComponent> {
+  @Input() dealer: Dealer;
+}

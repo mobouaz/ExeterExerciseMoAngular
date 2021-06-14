@@ -1,4 +1,8 @@
+export interface CustomerCenterSectionesponses{
+   sections: CustomerCenterSectionesponse[]
+}
 export interface CustomerCenterSectionesponse {
+   
        id : number,
        title : string,
         customerCenterInfos : CustomerCenterInfo[]

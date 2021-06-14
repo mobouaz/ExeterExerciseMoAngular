@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomercenterService } from 'src/app/modules/customercenter/customercenter.service';
-import { CustomerCenterSectionesponse } from '../../models/customercentersectionresponse';
+import { CustomerCenterSectionesponse, CustomerCenterSectionesponses } from '../../models/customercentersectionresponse';
 
 @Component({
   selector: 'app-customercenter',
@@ -9,13 +9,12 @@ import { CustomerCenterSectionesponse } from '../../models/customercentersection
 })
 export class CustomercenterComponent implements OnInit {
 
-  response: CustomerCenterSectionesponse[];
+  response: CustomerCenterSectionesponses;
   constructor(private customerCenterService: CustomercenterService) { }
 
   ngOnInit(): void {
-    this.customerCenterService.get<any>().subscribe(result => {
+    this.customerCenterService.get<CustomerCenterSectionesponses>().subscribe(result => {
       this.response = result;
-      // var f = this.customerCenterSectionResponse. =result.customerCenterSections;
     }, error => console.error(error));
   }
 

@@ -3,17 +3,18 @@ import { Inject, Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { BasehttpService } from 'src/app/core/services/http/basehttp.service';
 import { catchError } from 'rxjs/operators'
+import { Dealer } from './models/dealer/dealer';
 
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class DealerService extends BasehttpService{
+export class DealerService {
   baseUrl: string = "https://exeterexerciseapi20210612231239.azurewebsites.net/";
-  get<DealerResponse>(): Observable<DealerResponse> {
+get(): Observable<Dealer[]> {
     var url = this.baseUrl + "api/dealers/";
-    return this.http.get<DealerResponse>(url).pipe(
+    return this.http.get<Dealer[]>(url).pipe(
       catchError((err) => {
         console.log('error caught in dealer service')
         console.error(err);
@@ -25,8 +26,8 @@ export class DealerService extends BasehttpService{
     );
   }
   //base url can be injected ex: http: HttpClient,  @Inject('BASE_URL') baseUrl: string)
-  constructor(http: HttpClient) {
-    super(http);
+  constructor(private http: HttpClient) {
+    // super(http);
   }
 }
 

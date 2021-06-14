@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Component, Input } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { DealerService } from '../../dealer.service';
@@ -8,6 +9,10 @@ import { DealerResponse } from '../../models/dealer/dealerresponse';
 
 import { DealerComponent } from './dealer.component';
 
+@Component({ selector: 'app-dealer-card', template: '' })
+export class DealerCardComponent  {
+  @Input() dealer: Dealer;
+}
 describe('DealerComponent', () => {
   let component: DealerComponent;
   let fixture: ComponentFixture<DealerComponent>;
@@ -77,7 +82,7 @@ describe('DealerComponent', () => {
 
     
     dealerService.get.and.returnValue(
-      of<Dealer[]>(d)
+      of(d)
       // return an Observable with some test data
       //of<DealerResponse>(<DealerResponse>{
           // dealers: [
@@ -141,7 +146,7 @@ describe('DealerComponent', () => {
         );
 
     TestBed.configureTestingModule({
-      declarations: [DealerComponent],
+      declarations: [DealerComponent, DealerCardComponent],
       imports: [HttpClientModule ],
       providers: [
         {
@@ -168,8 +173,12 @@ describe('DealerComponent', () => {
     let title = fixture.nativeElement.querySelector('h1');
     expect(title.textContent).toEqual('Dealers');
 }));
-// it('should display a "name1" name', async(() => {
-//   let title = fixture.nativeElement.querySelector('.testname');
-//   expect(title.textContent).toEqual('name1');
-// }));
+it('should display a "name1" name', async(() => {
+  fixture = TestBed.createComponent(DealerComponent);
+    component = fixture.componentInstance;
+    component.dealers = d;
+    fixture.detectChanges();
+  let title = fixture.nativeElement.querySelector('h1');
+  expect(title.textContent).toEqual('Dealers');
+}));
 });
