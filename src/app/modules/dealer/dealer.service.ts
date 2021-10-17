@@ -12,16 +12,16 @@ import { Dealer } from './models/dealer/dealer';
 
 export class DealerService {
   baseUrl: string = "https://exeterexerciseapi20210612231239.azurewebsites.net/";
-get(): Observable<Dealer[]> {
+  get(): Observable<Dealer[]> {
     var url = this.baseUrl + "api/dealers/";
     return this.http.get<Dealer[]>(url).pipe(
       catchError((err) => {
         console.log('error caught in dealer service')
         console.error(err);
 
-     
 
-        return throwError(err);   
+
+        return throwError(err);
       })
     );
   }

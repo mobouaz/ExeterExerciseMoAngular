@@ -22,10 +22,10 @@ import { NavigationBarComponent } from './core/navigation-bar/navigation-bar.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     DealerModule,
-    CustomercenterModule
+    CustomercenterModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
